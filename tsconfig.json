@@ -6,5 +6,12 @@
 */
 {
   "files": [],
-  "references": []
+  "references": [
+    {
+      "path": "./projects/cube3d-component/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/cube3d-component/tsconfig.spec.json"
+    }
+]
 }
