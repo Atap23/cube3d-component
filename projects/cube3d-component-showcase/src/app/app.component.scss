@@ -1,0 +1,29 @@
+:host {
+  height: 100%;
+  width: 100%;
+
+  background-color: rgba(56,108,179, 0.5);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  --cube3d-height: 200px;
+  --cube3d-width: 200px;
+
+  --cube3d-front-face-background: red;
+  --cube3d-back-face-background: blue;
+  --cube3d-top-face-background: purple;
+  --cube3d-bottom-face-background: green;
+  --cube3d-left-face-background: olive;
+  --cube3d-right-face-background: gray;
+
+  .buttons-container {
+    margin-top: 30px;
+
+    button {
+      margin-right: 20px;
+    }
+  }
+}

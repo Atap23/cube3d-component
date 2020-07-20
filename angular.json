@@ -42,6 +42,127 @@
           }
         }
       }
+    },
+    "cube3d-component-showcase": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/cube3d-component-showcase",
+      "sourceRoot": "projects/cube3d-component-showcase/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/cube3d-component-showcase",
+            "index": "projects/cube3d-component-showcase/src/index.html",
+            "main": "projects/cube3d-component-showcase/src/main.ts",
+            "polyfills": "projects/cube3d-component-showcase/src/polyfills.ts",
+            "tsConfig": "projects/cube3d-component-showcase/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/cube3d-component-showcase/src/favicon.ico",
+              "projects/cube3d-component-showcase/src/assets"
+            ],
+            "styles": [
+              "projects/cube3d-component-showcase/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/cube3d-component-showcase/src/environments/environment.ts",
+                  "with": "projects/cube3d-component-showcase/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "cube3d-component-showcase:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "cube3d-component-showcase:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "cube3d-component-showcase:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cube3d-component-showcase/src/test.ts",
+            "polyfills": "projects/cube3d-component-showcase/src/polyfills.ts",
+            "tsConfig": "projects/cube3d-component-showcase/tsconfig.spec.json",
+            "karmaConfig": "projects/cube3d-component-showcase/karma.conf.js",
+            "assets": [
+              "projects/cube3d-component-showcase/src/favicon.ico",
+              "projects/cube3d-component-showcase/src/assets"
+            ],
+            "styles": [
+              "projects/cube3d-component-showcase/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cube3d-component-showcase/tsconfig.app.json",
+              "projects/cube3d-component-showcase/tsconfig.spec.json",
+              "projects/cube3d-component-showcase/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/cube3d-component-showcase/e2e/protractor.conf.js",
+            "devServerTarget": "cube3d-component-showcase:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "cube3d-component-showcase:serve:production"
+            }
+          }
+        }
+      }
     }},
   "defaultProject": "cube3d-component"
 }

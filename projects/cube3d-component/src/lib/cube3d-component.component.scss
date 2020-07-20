@@ -1,0 +1,87 @@
+$cubeProportion: calc(var(--cube3d-height, 700px) / 2);
+
+
+:host {
+  display: inline-block;
+  perspective: 600px;
+  perspective-origin: center;
+
+  --cube3d-height: 200px;
+  --cube3d-width: 200px;
+
+  .cube-container {
+    display: inline-block;
+    margin: var(--cube3d-margin, 0);
+    transform-origin: center center -50%;
+    height: var(--cube3d-height, 800px);
+    width: var(--cube3d-width, 800px);
+
+    transform-style: preserve-3d;
+    transition: transform 1.5s;
+
+    .face {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      backface-visibility: hidden;
+      height: var(--cube3d-height, 800px);
+      width: var(--cube3d-width, 800px);
+      border: var(--cube3d-face-border, #{none});
+      border-radius: var(--cube3d-face-border-radius, 0);
+
+      //box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5); // TODO: Ponerlo como variable CSS
+    }
+
+    .front  {
+      transform: translate3d(0, 0, $cubeProportion);
+      background: var(--cube3d-front-face-background, #{inherit});
+    }
+    .back   {
+      transform: rotate3d(1, 0, 0, -180deg) translate3d(0, 0, $cubeProportion);
+      background: var(--cube3d-back-face-background, #{inherit});
+    }
+    .left {
+      transform: rotate3d(0, 1, 0, -90deg) translate3d(0, 0, $cubeProportion);
+      background: var(--cube3d-left-face-background, #{inherit});
+    }
+    .right {
+      transform: rotate3d(0, 1, 0, 90deg) translate3d(0, 0, $cubeProportion);
+      background: var(--cube3d-right-face-background, #{inherit});
+    }
+    .top   {
+      transform: rotate3d(1, 0, 0, 90deg) translate3d(0, 0, $cubeProportion);
+      background: var(--cube3d-top-face-background, #{inherit});
+    }
+    .bottom   {
+      transform: rotate3d(1, 0, 0, -90deg) translate3d(0, 0, $cubeProportion);
+      background: var(--cube3d-bottom-face-background, #{inherit});
+    }
+    &.show-front {
+      transform: translate3d(0, 0, calc(#{$cubeProportion} * -1));
+    }
+    &.show-back {
+      transform: translate3d(0, 0, calc(#{$cubeProportion} * -1)) rotate3d(1, 0, 0, -180deg);
+    }
+    &.show-right {
+      transform: translate3d(0, 0, calc(#{$cubeProportion} * -1)) rotate3d(0, 1, 0, -90deg);
+    }
+    &.show-left {
+      transform: translate3d(0, 0, calc(#{$cubeProportion} * -1)) rotate3d(0, 1, 0, 90deg);
+    }
+    &.show-top {
+      transform: translate3d(0, 0, calc(#{$cubeProportion} * -1)) rotate3d(1, 0, 0, -90deg);
+    }
+    &.show-bottom {
+      transform: translate3d(0, 0, calc(#{$cubeProportion} * -1)) rotate3d(1, 0, 0, 90deg);
+    }
+  }
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+<div class="cube-container" [ngClass]="showClass">
+  <div id="front" class="front face">
+    <ng-content select="[cube3dFrontFace]"></ng-content>
+  </div>
+
+  <div id="back" class="back face">
+    <ng-content select="[cube3dBackFace]"></ng-content>
+  </div>
+
+  <div id="left" class="left face">
+    <ng-content select="[cube3dLeftFace]"></ng-content>
+  </div>
+
+  <div id="right" class="right face">
+    <ng-content select="[cube3dRightFace]"></ng-content>
+  </div>
+
+  <div id="top" class="top face">
+    <ng-content select="[cube3dTopFace]"></ng-content>
+  </div>
+
+  <div id="bottom" class="bottom face">
+    <ng-content select="[cube3dBottomFace]"></ng-content>
+  </div>
+</div>
+

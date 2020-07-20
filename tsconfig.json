@@ -12,6 +12,12 @@
     },
     {
       "path": "./projects/cube3d-component/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/cube3d-component-showcase/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/cube3d-component-showcase/tsconfig.spec.json"
     }
 ]
 }
