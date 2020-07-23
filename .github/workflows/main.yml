@@ -10,6 +10,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Installing
+      run: sudo npm install -g @angular/cli
     - name: All things angular
       uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.2.1
       with:
