@@ -1,24 +1,91 @@
 # Cube3dComponent
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.4.
+Documentation [Working in progress]. Yes, i have to do a lot of work but... step by step, mate :)
 
-## Code scaffolding
+### Basic usage
+Import the module:
+```
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 
-Run `ng generate component component-name --project cube3d-component` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project cube3d-component`.
-> Note: Don't forget to add `--project cube3d-component` or else it will be added to the default project in your `angular.json` file. 
+import { AppComponent } from './app.component';
+import {Cube3dComponentModule} from '../../../cube3d-component/src/lib/cube3d-component.module';
 
-## Build
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    Cube3dComponentModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+```
 
-Run `ng build cube3d-component` to build the project. The build artifacts will be stored in the `dist/` directory.
+Add this in your component's HTML:
+```
+<cube3d-component>
+  <div cube3dFrontFace>Front</div>
+  <div cube3dBackFace>Back</div>
+  <div cube3dLeftFace>Left</div>
+  <div cube3dRightFace>Right</div>
+  <div cube3dTopFace>Top</div>
+  <div cube3dBottomFace>Bottom</div>
+</cube3d-component>
+```
 
-## Publishing
+If some face is not provided, only face background-color will be visible.
 
-After building your library with `ng build cube3d-component`, go to the dist folder `cd dist/cube3d-component` and run `npm publish`.
+### Define Cube3d size
 
-## Running unit tests
+You can define the Cube3d sizes (height, width and deep) by defining the next css variables:
+```
+--cube3d-height: 200px;
+--cube3d-width: 400px;
+--cube3d-deep: 200px;
+```
 
-Run `ng test cube3d-component` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Other css variables you can define:
+```
+--cube3d-front-face-background: red;
+--cube3d-back-face-background: blue;
+--cube3d-top-face-background: purple;
+--cube3d-bottom-face-background: green;
+--cube3d-left-face-background: olive;
+--cube3d-right-face-background: gray;
 
-## Further help
+--cube3d-face-border: 1px solid black;
+--cube3d-face-border-radius: 25px;
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Change Cube3d face
+
+To change Cube3d face, you will have to add this to the component where you are using the Cube3d:
+```
+import {Cube3dComponentComponent, Cube3dShowFaces} from 'cube3d-component';
+
+@ViewChild(Cube3dComponentComponent)
+public cube3d: Cube3dComponentComponent;
+
+public changeCubeFace(): void {
+  this.cube3d.showFace(Cube3dShowFaces.BACK);
+}
+```
+
+### Listen for Cube3d face events
+
+You can listen for the of a change animation like this:
+```
+<cube3d-component (faceChangeEnd)="yourFunction($event)">
+  <div cube3dFrontFace>Front</div>
+  <div cube3dBackFace>Back</div>
+  <div cube3dLeftFace>Left</div>
+  <div cube3dRightFace>Right</div>
+  <div cube3dTopFace>Top</div>
+  <div cube3dBottomFace>Bottom</div>
+</cube3d-component>
+```
+

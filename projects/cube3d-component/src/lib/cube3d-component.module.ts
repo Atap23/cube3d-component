@@ -7,6 +7,7 @@ import {Cube3dLeftFaceDirective} from './directives/cube3d-left-face.directive';
 import {Cube3dRightFaceDirective} from './directives/cube3d-right-face.directive';
 import {Cube3dTopFaceDirective} from './directives/cube3d-top-face.directive';
 import {Cube3dBottomFaceDirective} from './directives/cube3d-bottom-face.directive';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 
@@ -21,7 +22,8 @@ import {Cube3dBottomFaceDirective} from './directives/cube3d-bottom-face.directi
     Cube3dBottomFaceDirective
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    BrowserAnimationsModule
   ],
   exports: [Cube3dComponentComponent]
 })

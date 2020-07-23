@@ -1,18 +1,20 @@
-<cube3d-component>
-  <p cube3dFrontFace>Front</p>
+<cube3d-component (faceChangeEnd)="faceChanged($event)">
+  <div cube3dFrontFace>Front</div>
   <div cube3dBackFace>Back</div>
   <div cube3dLeftFace>Left</div>
   <div cube3dRightFace>Right</div>
   <div cube3dTopFace>Top</div>
   <div cube3dBottomFace>Bottom</div>
+
 </cube3d-component>
 
 <div class="buttons-container">
-  <button (click)="cube3d.showFrontFace()">Show Front</button>
-  <button (click)="cube3d.showBackFace()">Show Back</button>
-  <button (click)="cube3d.showLeftFace()">Show Left</button>
-  <button (click)="cube3d.showRightFace()">Show Right</button>
-  <button (click)="cube3d.showTopFace()">Show Top</button>
-  <button (click)="cube3d.showBottomFace()">Show Bottom</button>
+  <button (click)="cube3d.showFace(cube3dShowFaces.FRONT)">Show Front</button>
+  <button (click)="cube3d.showFace(cube3dShowFaces.BACK)">Show Back</button>
+  <button (click)="cube3d.showFace(cube3dShowFaces.LEFT)">Show Left</button>
+  <button (click)="cube3d.showFace(cube3dShowFaces.RIGHT)">Show Right</button>
+  <button (click)="cube3d.showFace(cube3dShowFaces.TOP)">Show Top</button>
+
+  <button (click)="cube3d.showFace(cube3dShowFaces.BOTTOM)">Show Bottom</button>
 </div>
 
