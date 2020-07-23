@@ -2,6 +2,10 @@
 
 Documentation [Working in progress]. Yes, i have to do a lot of work but... step by step, mate :)
 
+### Basic demo
+
+You can find a basic demo here: https://atap23.github.io/cube3d-component/
+
 ### Basic usage
 Import the module:
 ```
