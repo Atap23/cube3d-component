@@ -7,16 +7,23 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Installing
-      run: sudo npm install -g @angular/cli
-    - name: All things angular
-      uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.2.1
+    - name: Checkout
+      uses: actions/checkout@v1
+    - uses: actions/setup-node@v1 #this installs node and npm for us
+    - uses: actions/cache@v1 # this allows for re-using node_modules caching, making builds a bit faster.
       with:
-        angular_project_dir: ./projects/cube3d-component-showcase
-        build_configuration: production # The build environment for the app. please look configurations in your angular.json
-        base_href: https://atap23.github.io/cube3d-component/   # make sure this corresponds to https://<your_username>.github.io/<base_href>/
-        deploy_branch: gh-pages # The branch the action should deploy to.
-        build_folder: ''
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-    
+    - name: Build
+      run: |
+        npm install
+        npm run-script deploy
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: dist/cube3d-component-showcase
