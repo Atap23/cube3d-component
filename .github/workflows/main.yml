@@ -14,6 +14,6 @@ jobs:
       uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.2.1
       with:
         angular_project_dir: ./projects/cube3d-component-showcase
-        build_configuration: staging # The build environment for the app. please look configurations in your angular.json
+        build_configuration: production # The build environment for the app. please look configurations in your angular.json
         base_href: https://atap23.github.io/cube3d-component/   # make sure this corresponds to https://<your_username>.github.io/<base_href>/
         deploy_branch: gh-pages # The branch the action should deploy to.
