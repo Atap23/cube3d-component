@@ -63,7 +63,6 @@
             "polyfills": "projects/cube3d-component-showcase/src/polyfills.ts",
             "tsConfig": "projects/cube3d-component-showcase/tsconfig.app.json",
             "aot": true,
-            "baseHref": "https://atap23.github.io/cube3d-component/",
             "assets": [
               "projects/cube3d-component-showcase/src/favicon.ico",
               "projects/cube3d-component-showcase/src/assets"

@@ -10,18 +10,24 @@
   justify-content: center;
 
 
-
-  --cube3d-front-face-background: red;
-  --cube3d-back-face-background: blue;
-  --cube3d-top-face-background: purple;
-  --cube3d-bottom-face-background: green;
-  --cube3d-left-face-background: olive;
-  --cube3d-right-face-background: gray;
+  --cube3d-face-border: 1px solid black;
+  --cube3d-front-face-background: #111a26b5;
+  --cube3d-back-face-background: #111a26b5;
+  --cube3d-top-face-background: #111a26b5;
+  --cube3d-bottom-face-background: #111a26b5;
+  --cube3d-left-face-background: #111a26b5;
+  --cube3d-right-face-background: #111a26b5;
 
   cube3d-component {
-    --cube3d-height: 200px;
-    --cube3d-width: 400px;
-    --cube3d-deep: 200px;
+    --cube3d-height: 300px;
+    --cube3d-width: 300px;
+    --cube3d-deep: 300px;
+  }
+
+  div[cube3dFrontFace] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .buttons-container {

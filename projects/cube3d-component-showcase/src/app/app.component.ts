@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {Cube3dComponentComponent} from '../../../cube3d-component/src/lib/cube3d-component.component';
 import {Cube3dShowFaces} from '../../../cube3d-component/src/lib/cube3d-component.types';
 
@@ -8,8 +8,12 @@ import {Cube3dShowFaces} from '../../../cube3d-component/src/lib/cube3d-componen
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  @ViewChild(Cube3dComponentComponent)
-  public cube3d: Cube3dComponentComponent;
+  @ViewChildren(Cube3dComponentComponent)
+  public cube3d: QueryList<Cube3dComponentComponent>;
+
+  public get cube3ds(): Cube3dComponentComponent[] {
+    return this.cube3d.toArray();
+  }
 
   public cube3dShowFaces: typeof Cube3dShowFaces;
 
@@ -18,7 +22,6 @@ export class AppComponent {
   }
 
   public faceChanged($event: { face: Cube3dShowFaces }): void {
-    alert($event.face);
     console.log($event.face);
   }
 }

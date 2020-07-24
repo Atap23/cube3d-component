@@ -36,7 +36,7 @@ import {animate, AnimationEvent, state, style, transition, trigger} from '@angul
       state(Cube3dShowFaces.BOTTOM, style({
         transform: 'rotate3d(1, 0, 0, 90deg) translate3d(0, calc(({{cubeHeight}} / 2) * -1), 0)'
       }), { params: {cubeHeight: '200px'}}),
-      transition('* => *', animate('2000ms cubic-bezier(0.215, 0.61, 0.355, 1)'))
+      transition('* => *', animate('2000ms cubic-bezier(0.34, 1.56, 0.64, 1)'))
     ])
   ]
 })

@@ -1,20 +1,53 @@
-<cube3d-component (faceChangeEnd)="faceChanged($event)">
-  <div cube3dFrontFace>Front</div>
-  <div cube3dBackFace>Back</div>
-  <div cube3dLeftFace>Left</div>
-  <div cube3dRightFace>Right</div>
-  <div cube3dTopFace>Top</div>
-  <div cube3dBottomFace>Bottom</div>
+<div>
+  <cube3d-component (faceChangeEnd)="faceChanged($event)">
+    <div cube3dFrontFace>Front</div>
+    <div cube3dBackFace>Back</div>
+    <div cube3dLeftFace>
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input type="text" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput>
+      </mat-form-field>
+      <br>
+    </div>
+    <div cube3dRightFace>Right</div>
+    <div cube3dTopFace>Top</div>
+    <div cube3dBottomFace>Bottom</div>
 
-</cube3d-component>
+  </cube3d-component>
+  <cube3d-component (faceChangeEnd)="faceChanged($event)">
+    <div cube3dFrontFace>Front</div>
+    <div cube3dBackFace>Back</div>
+    <div cube3dLeftFace>
+      <mat-form-field appearance="fill">
+        <mat-label>Username</mat-label>
+        <input type="text" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input type="password" matInput>
+      </mat-form-field>
+      <br>
+    </div>
+    <div cube3dRightFace>Right</div>
+    <div cube3dTopFace>Top</div>
+    <div cube3dBottomFace>Bottom</div>
 
+  </cube3d-component>
+
+</div>
 <div class="buttons-container">
-  <button (click)="cube3d.showFace(cube3dShowFaces.FRONT)">Show Front</button>
-  <button (click)="cube3d.showFace(cube3dShowFaces.BACK)">Show Back</button>
-  <button (click)="cube3d.showFace(cube3dShowFaces.LEFT)">Show Left</button>
-  <button (click)="cube3d.showFace(cube3dShowFaces.RIGHT)">Show Right</button>
-  <button (click)="cube3d.showFace(cube3dShowFaces.TOP)">Show Top</button>
 
-  <button (click)="cube3d.showFace(cube3dShowFaces.BOTTOM)">Show Bottom</button>
+  <button mat-raised-button (click)="cube3ds[0].showFace(cube3dShowFaces.FRONT)">Show Front</button>
+  <button mat-raised-button (click)="cube3ds[0].showFace(cube3dShowFaces.BACK)">Show Back</button>
+  <button mat-raised-button (click)="cube3ds[0].showFace(cube3dShowFaces.LEFT)">Show Left</button>
+  <button mat-raised-button (click)="cube3ds[1].showFace(cube3dShowFaces.RIGHT)">Show Right</button>
+  <button mat-raised-button (click)="cube3ds[1].showFace(cube3dShowFaces.TOP)">Show Top</button>
+  <button mat-raised-button (click)="cube3ds[1].showFace(cube3dShowFaces.BOTTOM)">Show Bottom</button>
 </div>
 
